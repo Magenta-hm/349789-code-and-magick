@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
 * Студент: [Татьяна Керимова](https://up.htmlacademy.ru/javascript/15/user/349789).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Золотых](https://htmlacademy.ru/profile/id863337).
 
 ---
 
