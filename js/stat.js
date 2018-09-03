@@ -7,8 +7,9 @@ var TEXT_HEIGHT = 20;
 var BAR_MAX_HEIGHT = 150;
 var BAR_WIDTH = 40;
 var BAR_GAP = 50;
+var GAP_TEXT_PADDING = 5;
 
-var renderCloud = function (ctx, x, y, color) {
+/* var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.beginPath();
 
@@ -24,6 +25,21 @@ var renderCloud = function (ctx, x, y, color) {
   ctx.bezierCurveTo(200 + x, 285 + y, 130 + x, 250 + y, 140 + x, 205 + y);
   ctx.bezierCurveTo(100 + x, 215 + y, 95 + x, 100 + y, 120 + x, 80 + y);
 
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+}; */
+
+var renderCloud = function (ctx, x, y, color) {
+  ctx.fillStyle = color;
+  ctx.beginPath();
+
+  ctx.moveTo(100 + x, 10 + y);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+  ctx.fillRect(110, 20, 420, 270);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(100, 10, 420, 270);
   ctx.closePath();
   ctx.stroke();
   ctx.fill();
@@ -57,7 +73,7 @@ var renderPlayerResult = function (ctx, i, name, time, barHeight) {
   } else {
     ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
   }
-  ctx.fillRect(CLOUD_X + GAP_X + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + GAP_Y + TEXT_HEIGHT * 2 + 5 + BAR_MAX_HEIGHT - barHeight, BAR_WIDTH, barHeight);
+  ctx.fillRect(CLOUD_X + GAP_X + (BAR_WIDTH + BAR_GAP) * i, CLOUD_Y + GAP_Y + TEXT_HEIGHT * 2 + GAP_TEXT_PADDING + BAR_MAX_HEIGHT - barHeight, BAR_WIDTH, barHeight);
 };
 
 window.renderStatistics = function (ctx, names, times) {
