@@ -60,8 +60,8 @@
 
     var maxTime = getMaxElement(times);
 
-    names.forEach(function (item, i) {
-      renderPlayerResult(ctx, i, names[i], times[i], (BAR_MAX_HEIGHT * times[i]) / maxTime);
+    names.forEach(function (name, i) {
+      renderPlayerResult(ctx, i, name, times[i], (BAR_MAX_HEIGHT * times[i]) / maxTime);
     });
   };
 })();
