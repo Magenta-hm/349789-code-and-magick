@@ -2,14 +2,14 @@
 
 (function dialogModule() {
   var setupDialogElement = document.querySelector('.setup');
-  var dialogHandler = setupDialogElement.querySelector('.upload');
+  var dialogElement = setupDialogElement.querySelector('.upload');
 
-  dialogHandler.addEventListener('mousedown', function (evt) {
-    evt.preventDefault();
+  dialogElement.addEventListener('mousedown', function (downEvt) {
+    downEvt.preventDefault();
 
     var startCoords = {
-      x: evt.clientX,
-      y: evt.clientY
+      x: downEvt.clientX,
+      y: downEvt.clientY
     };
 
     var dragged = false;
@@ -40,11 +40,11 @@
       document.removeEventListener('mouseup', onMouseUp);
 
       if (dragged) {
-        var onClickPreventDefault = function (evt) {
-          evt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault);
+        var onClickPreventDefault = function (clickEvt) {
+          clickEvt.preventDefault();
+          dialogElement.removeEventListener('click', onClickPreventDefault);
         };
-        dialogHandler.addEventListener('click', onClickPreventDefault);
+        dialogElement.addEventListener('click', onClickPreventDefault);
       }
 
     };
