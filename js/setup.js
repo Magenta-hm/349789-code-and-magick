@@ -44,6 +44,14 @@
   var setupClose = setup.querySelector('.setup-close');
   var setupUserName = setup.querySelector('.setup-user-name');
 
+  var setupDefaultTop = setup.style.top;
+  var setupDefaultLeft = setup.style.left;
+
+  var setDefaultPopupPosition = function () {
+    setup.style.top = setupDefaultTop;
+    setup.style.left = setupDefaultLeft;
+  };
+
   var showElement = function (elementName) {
     var element = document.querySelector(elementName);
     element.classList.remove('hidden');
@@ -57,11 +65,13 @@
 
   var openPopup = function () {
     setup.classList.remove('hidden');
+    setDefaultPopupPosition();
     document.addEventListener('keydown', onPopupEscPress);
   };
 
   var closePopup = function () {
     setup.classList.add('hidden');
+    setDefaultPopupPosition();
     document.removeEventListener('keydown', onPopupEscPress);
   };
 
